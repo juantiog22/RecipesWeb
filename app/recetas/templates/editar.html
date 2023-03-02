@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+{% if user.is_staff %}
+
+
+<div class="container mt-3" id="container" style="width: 90%; font-size:14px">
+    <h2 style="margin-top:30px; color:green">Editar receta</h2>
+
+    <form method="POST" id="card_editar" class="card p-3 mt-3" enctype="multipart/form-data" autocomplete="of">
+         {% csrf_token %}
+         {{ form }}
+         <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block text-white mt-3" value="Guardar"/>
+        </div>
+    </form>
+</div>
+
+{% else %}
+
+<div style='margin-top:80px; margin-left:150px; color:red'>
+    <h1 >Necesitas ser staff para editar la receta</h1>
+</div>
+
+{% endif %}
+
+
+{% endblock %}

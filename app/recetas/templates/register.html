@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="mt-5 "></div>
+
+<div class="row">
+
+<div class="col col-6  mx-auto">
+
+    <div class="card" id='register'>
+        <div class="card-body">
+
+            <hr>
+
+            <form class="signup" id="signup_form" method="post">
+                {% csrf_token %}
+                {{ form }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <button type="submit" id='submit' class="btn btn-primary btn-block">Registrarse &raquo;</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

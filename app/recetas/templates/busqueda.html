@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<body>
+
+<div class="pt-5 pb-3 border-bottom">
+  <h1 class="h2">Lista de recetas</h1>
+</div>
+
+<table class="table table-striped" id='lista'>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+        </tr>
+        </thead>
+    {% for receta in recetas %}
+        <tbody>
+            
+        <tr>        
+            <td id='contador'>{{forloop.counter}}</td>
+            <td><a class href="{% url 'receta' receta.id %}">{{receta.nombre}}</td>
+            {% if user.is_staff %}
+
+            
+            <td class='centrado'>
+                <a href='{% url 'editar' receta.id %}' type='submit' class='btn btn-sm btn-primary btn-block btn-info'>Editar</a>
+            </td>
+
+            {% endif %}
+            {% if user.is_superuser %}
+            <td class='centrado'>
+                <a href='eliminar/{{receta.id}}' class='btn btn-sm btn-danger btn-block btn-info tn btnEliminacion'>Eliminar </a>
+            </td>
+            {% endif %}
+
+        </tr>
+        </tbody>
+    {% endfor %}
+    
+</table>
+{% if user.is_superuser %}
+        <div class="col-md-4">
+            <h3 style="color:green">Insertar nueva receta</h3>
+            <div class="card" id='insertar'>
+                <div class="card-body">
+                         {% csrf_token %}
+                        <div class="form-group">
+                            <a href='{% url 'create' %}' type='submit' class='btn btn-sm btn-success btn-block btn-success'>Nueva</a>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+{% endif %}            
+    </body>
+{% else %}
+<div style='margin-top:80px; margin-left:100px; color:red'>
+    <h1 >Necesitas autenticarte para ver la lista de receta</h1>
+</div>
+{% endif%}
+
+{% if messages %}
+    {% for message in messages %}
+        <script>
+            Swal.fire({
+                "title": "Felicitaciones",
+                "text": "{{ message }}",
+                "icon": "success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+
+
+
+{% endblock content %}
+
+
+
+

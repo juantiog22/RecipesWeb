@@ -1,0 +1,156 @@
+
+
+body{
+    background: #f1f1f1;
+    font-family: 'Roboto', sans-serif;
+    transition: .3s ease all;
+
+    #insertar{
+        background-color: whitesmoke;
+    }
+
+    
+    &.dark{
+        background: rgb(30, 28, 36);
+        color: white;
+        #main{
+             color: #F1F1F1;
+        }
+
+        #lista{
+            background-color: rgb(53, 53, 54);
+            color: #F1F1F1;
+            #contador{
+                color: #f1f1f1;
+            }
+        }
+
+        #insertar{
+            background-color: grey;
+        }
+
+        #login{
+            background-color: grey;
+            color: white;
+        }
+
+        #register{
+            background-color: grey;
+            color: white;
+        }
+
+        #table_recetas{
+            background-color: rgb(53, 53, 54);
+            color: white;
+            #nombre{
+                color: white;
+            }
+            #preparacion{
+                color: white;
+            }
+        }
+
+        #card_editar{
+            background-color: grey;
+            color: white;
+        }
+
+        #container{
+            background-color: grey;
+            color: white;
+        }
+
+
+    }
+    
+}
+
+
+  
+nav{
+    background-color: gray;
+}
+
+  
+.switch{
+    background: black;
+    border-radius:  1000px;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    &::after{
+        content: "";
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background: #F1F1F1;
+        top :0;
+        left: 0;
+        right: unset;
+        border-radius: 100px;
+        transition: .3s ease all;
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+
+    }
+    &.active{
+        background: orange;
+        color: #000;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+    span{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: #fff;
+    }
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: rgb(212, 157, 39);}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

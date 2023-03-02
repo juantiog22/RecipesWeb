@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="pt-5 pb-3 border-bottom">
+  <h1 class="h2">Receta de {{receta.nombre}}</h1>
+</div>
+
+
+<table class="table table-striped" id='table_recetas'>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Preparacion</th>
+            <th scope="col">Foto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"></th>
+            <td id='nombre'>{{ receta.nombre }}</td>
+            <td id='preparacion'>{{ receta.preparación }}</td>
+            
+            <td><img class='image' style="width: 200px; height: 100px;" src="/media/{{receta.foto}}"/></td>
+        </tr>
+        </tbody>
+</table>
+
+{% else %}
+<div style='margin-top:80px; margin-left:100px; color:red'>
+    <h1 >Necesitas autenticarte para ver los detalles de la receta</h1>
+</div>
+{% endif %}
+
+
+{% endblock content %}
+
